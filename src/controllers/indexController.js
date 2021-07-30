@@ -29,12 +29,6 @@ module.exports = {
         })
     },
     update: function (req, res) {
-        // let detail = db.Nota.findByPk (req.params.id)
-        // .then (function(detail){
-        // })
-        // .catch(function(e) {
-        //     res.send (e)
-        // })
 
         db.Nota.update ({
             titulo: req.body.title,
