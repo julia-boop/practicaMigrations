@@ -14,10 +14,10 @@ module.exports = function(sequelize, DataTypes){
         texto: {
             type: DataTypes.TEXT,
             allowNull: false
-        },
-        usuarioFK: {
-            type: DataTypes.INTEGER,
-            allowNull:false
+        }, 
+        usuario_FK: {
+            type: DataTypes.INTEGER(10).UNSIGNED,
+            allowNull: false
         }
     }
     const config = {
@@ -25,6 +25,15 @@ module.exports = function(sequelize, DataTypes){
         timestamps: true,
     }
     const Nota = sequelize.define(alias, cols, config);
+
+    Nota.associate = (models) => {
+
+        Nota.belongsTo(models.Usuario, {
+            as: 'usuarios', 
+            foreignKey: 'usuario_FK'
+        })
+
+    }
 
 
     return Nota

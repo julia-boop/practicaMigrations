@@ -10,7 +10,7 @@ module.exports = {
     create: function(req, res) {
         db.Nota.create({
             titulo: req.body.title,
-            texto: req.body.text
+            texto: req.body.text,
         }) 
         .then(function(data){
             res.redirect('/')
